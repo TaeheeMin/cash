@@ -33,7 +33,7 @@
                                 <ul>
                                     <li><a href="<%=request.getContextPath()%>/cash/cashList.jsp">Home</a></li>
                                     <li><a href="<%=request.getContextPath()%>/cash/cashList.jsp">Calendar</a></li>
-                                    <li><a href="<%=request.getContextPath()%>/cash/cashList.jsp">미정</a></li>
+                                    <li><a href="<%=request.getContextPath()%>/cash/cashStats.jsp">미정</a></li>
                                     <li><a href="<%=request.getContextPath()%>/member/updateMemberForm.jsp">Profile</a></li>
                                     <li><a href="<%=request.getContextPath()%>/help/helpList.jsp">Contact</a></li>
                                     <li><a href="<%=request.getContextPath()%>/logout.jsp">Logout</a></li>

@@ -6,6 +6,7 @@
 <%
 	// controller : session 검증
 	// 로그인 세션 정보 확인
+	request.setCharacterEncoding("utf-8");
 	Member loginMember = (Member)session.getAttribute("loginMember");
 	if(loginMember == null){
 		String msg = URLEncoder.encode("로그인해주세요","utf-8");
