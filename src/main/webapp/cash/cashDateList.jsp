@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="java.lang.StackWalker.Option"%>
 <%@ page import="dao.*"%>
 <%@ page import="java.util.*"%>
 <%@ page import="vo.*"%>
@@ -69,7 +68,6 @@
 	    <!-- Template Stylesheet -->
 	    <link href="<%=request.getContextPath()%>/resources/css/style.css" rel="stylesheet">
 		
-		
 		<meta name="description" content="">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -112,9 +110,11 @@
 	            	<!-- #### 리스트 #### -->
 					<div class="col-12">
 			            <div class="h-100 p-4">
+			            
 				            <div class="elements-title">
-			                        <h2><%=year%>년 <%=month%> 월 <%=date %>일</h2>
+		                        <h2><%=year%>년 <%=month%> 월 <%=date %>일</h2>
 		                    </div>
+		                    
 			                <div class="table-responsive">
 			                    <table class="table">
 			                        <thead>
@@ -215,14 +215,14 @@
 
 	    <!-- ##### All Javascript Script ##### -->
 	    <!-- jQuery-2.2.4 js -->
-	    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+	    <script src="<%=request.getContextPath()%>/resources/js/jquery/jquery-2.2.4.min.js"></script>
 	    <!-- Popper js -->
-	    <script src="js/bootstrap/popper.min.js"></script>
+	    <script src="<%=request.getContextPath()%>/resources/js/bootstrap/popper.min.js"></script>
 	    <!-- Bootstrap js -->
-	    <script src="js/bootstrap/bootstrap.min.js"></script>
+	    <script src="<%=request.getContextPath()%>/resources/js/bootstrap/bootstrap.min.js"></script>
 	    <!-- All Plugins js -->
-	    <script src="js/plugins/plugins.js"></script>
+	    <script src="<%=request.getContextPath()%>/resources/js/plugins/plugins.js"></script>
 	    <!-- Active js -->
-	    <script src="js/active.js"></script>
+	    <script src="<%=request.getContextPath()%>/resources/js/active.js"></script>
 	</body>
 </html>

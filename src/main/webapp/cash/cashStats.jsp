@@ -21,14 +21,29 @@
 		response.sendRedirect(request.getContextPath()+redirectUrl);
 		return;
 	}
-
+	
+	int year = 0;
+	if(request.getParameter("year") == null) {
+		Calendar c = Calendar.getInstance();
+		year = c.get(Calendar.YEAR);
+	} else {
+		year = Integer.parseInt(request.getParameter("year"));
+	}
+	System.out.println(year);
+	
+	//모델 호출
+	// 월별 수입.지출
+	ArrayList<Cash> yearList = new ArrayList<Cash>();
+	CashDao cashDao = new CashDao();
+	yearList = cashDao.selectCashListYear(loginMember.getMemberId());
+	ArrayList<HashMap<String, Object>> list = cashDao.selectCashListByYear(loginMember.getMemberId(), year);
 %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>CashBook</title>
-		 <link  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<title>달력</title>
+		<link  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/NewFile.css">
@@ -55,6 +70,8 @@
 	
 	    <!-- Template Stylesheet -->
 	    <link href="<%=request.getContextPath()%>/resources/css/style.css" rel="stylesheet">
+		
+		
 		<meta name="description" content="">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -90,6 +107,80 @@
 		<%
 			}
 		%>
+		<section class="elements-area mt-30 section-padding-100-0">
+			<div class="container">
+	            <div class="row">
+	            	<!-- #### 리스트 #### -->
+					<div class="col-12">
+			            <div class="h-100 p-4">
+			            
+				            <div class="elements-title">
+		                       <h2>월별 통계</h2>
+				            	<a href="<%=request.getContextPath()%>/cash/cashMain.jsp">메인</a>
+		                    </div>
+		                    <form action="<%=request.getContextPath()%>/cash/cashStats.jsp?year=<%=year%>">
+		                    	<select name="year">
+									<%
+										// 년도 출력
+										for(Cash c : yearList) {
+											%>
+												<option value="<%=c.getCashDate()%>">
+												<%=c.getCashDate()%>
+												</option>
+											<%
+										}
+									%>
+								</select>
+								<button type="submit">검색</button>
+			                  </form>
+			                <div class="table-responsive">
+			                    <table class="table">
+			                        <thead>
+			                            <tr>
+			                                <th scope="col">월</th>
+			                                <th scope="col">수입</th>
+			                                <th scope="col">합계</th>
+			                                <th scope="col">평균</th>
+			                                <th scope="col">지출</th>
+			                                <th scope="col">합계</th>
+			                                <th scope="col">평균</th>
+			                            </tr>
+			                        </thead>
+			                        <tbody>
+			                        	<%
+											for(HashMap<String, Object> m : list) {
+										%>
+												<tr>
+													<td><%=m.get("month") %></td>
+													<td><%=m.get("importCnt")%></td>
+													<td><%=m.get("importSum")%></td>
+													<td><%=m.get("importAvg")%></td>
+													<td><%=m.get("exportCnt")%></td>
+													<td><%=m.get("exportSum")%></td>
+													<td><%=m.get("exportAvg")%></td>
+												</tr>
+										<%
+											}
+										%>
+			                        </tbody>
+			                    </table>
+			                </div>
+			            </div>
+			        </div>
+		        </div>
+	        </div>
+        </section>
 		
+		<!-- ##### All Javascript Script ##### -->
+	    <!-- jQuery-2.2.4 js -->
+	    <script src="<%=request.getContextPath()%>/resources/js/jquery/jquery-2.2.4.min.js"></script>
+	    <!-- Popper js -->
+	    <script src="<%=request.getContextPath()%>/resources/js/bootstrap/popper.min.js"></script>
+	    <!-- Bootstrap js -->
+	    <script src="<%=request.getContextPath()%>/resources/js/bootstrap/bootstrap.min.js"></script>
+	    <!-- All Plugins js -->
+	    <script src="<%=request.getContextPath()%>/resources/js/plugins/plugins.js"></script>
+	    <!-- Active js -->
+	    <script src="<%=request.getContextPath()%>/resources/js/active.js"></script>
 	</body>
 </html>

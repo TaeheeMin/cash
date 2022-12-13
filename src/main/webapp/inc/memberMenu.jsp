@@ -31,7 +31,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="<%=request.getContextPath()%>/cash/cashList.jsp">Home</a></li>
+                                    <li><a href="<%=request.getContextPath()%>/cash/cashMain.jsp">Home</a></li>
                                     <li><a href="<%=request.getContextPath()%>/cash/cashList.jsp">Calendar</a></li>
                                     <li><a href="<%=request.getContextPath()%>/cash/cashStats.jsp">미정</a></li>
                                     <li><a href="<%=request.getContextPath()%>/member/updateMemberForm.jsp">Profile</a></li>
