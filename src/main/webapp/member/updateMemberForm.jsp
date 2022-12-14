@@ -84,64 +84,88 @@
 		<%
 			}
 		%>
-	
-		<section class="elements-area mt-30 section-padding-100-0">
+	  	<!-- ##### 정보수정 ##### -->
+		<section class="contact-area section-padding-100">
 			<div class="container">
 	            <div class="row">
-					<div>
-						<h1 Style="text-align:center;">정보 수정</h1>
-						<form method="post" action="<%=request.getContextPath()%>/member/updateMemberAction.jsp">
-							<table class="table table-bordered" Style="width:50%;">
-								<tr>
-									<td>아이디</td>
-									<td>
-										<input type="text" name="memberId" readonly="readonly" value="<%=loginMember.getMemberId()%>">
-									</td>
-								</tr>
-								<tr>
-									<td>비밀번호</td>
-									<td>
-										<input type="password" name="memberPw" placeholder="비밀번호 확인">
-									</td>
-								</tr>
-								<tr>
-									<td>이름</td>
-									<td>
-										<input type="text" name="memberName" value="<%=loginMember.getMemberName()%>">
-									</td>
-								</tr>
-							</table>
-							<div class="position-relative" Style="padding: 1.0em;">
-								<button type="submit"  class="position-absolute top-100 start-50 translate-middle">수정</button>
-							</div>
-						</form>
-					</div>
-		
-					<!-- 비밀번호 수정 -->
-					<div Style="padding: 2.0em;">
-						<h1 Style="text-align:center;" >비밀번호 수정</h1>
-						<form method="post" action="<%=request.getContextPath()%>/member/updateMemberPwAction.jsp">
-							<input type="hidden" name="memberId" value="<%=loginMember.getMemberId()%>">
-							<table class="table table-bordered" Style="width:50%;">
-								<tr>
-									<td>비밀번호</td>
-									<td>
-										<input type="password" name="memberPw" placeholder="현재 비밀번호"> <br>
-										<input type="password" name="memberPw1" placeholder="새비밀번호"> <br>
-										<input type="password" name="memberPw2" placeholder="비밀번호 확인">
-									</td>
-								</tr>
-							</table>
-							<div class="position-relative" Style="padding: 1.0em;">
-								<button type="submit"  class="position-absolute top-100 start-50 translate-middle">수정</button>
-							</div>
-						</form>
-					</div>
-					<div class="position-relative" Style="padding: 1.0em;">
-						<button type="button" class="position-absolute top-100 start-50 translate-middle" onclick="location.href='<%=request.getContextPath()%>/member/deleteMemberForm.jsp'">회원탈퇴</button>
+					<div class="col-12">
+						<div class="elements-title">
+	                       	<h2>정보수정</h2>
+	                    </div>
+	                     <div class="contact-form-area">
+							<form id="updateForm" action="<%=request.getContextPath()%>/member/updateMemberAction.jsp">
+								<div class="row">
+	                                <div class="col-md-6 col-lg-4">
+	                                    <div class="form-group wow fadeInUp" data-wow-delay="100ms">
+	                                        <input type="text" class="form-control" id="memberId" name="memberId" value="<%=loginMember.getMemberId()%>" readonly="readonly">
+	                                    </div>
+	                                </div>
+	                                <div class="col-md-6 col-lg-4">
+	                                    <div class="form-group wow fadeInUp" data-wow-delay="100ms">
+	                                        <input type="text" class="form-control" id="memberName" name="memberName" placeholder="<%=loginMember.getMemberName()%>">
+	                                    </div>
+	                                </div>
+	                                <div class="col-lg-4">
+	                                    <div class="form-group wow fadeInUp" data-wow-delay="200ms">
+	                                        <input type="password" class="form-control" id="memberPw" name="memberPw" placeholder="password">
+	                                    </div>
+	                                </div>
+	                                <div class="col-12 text-center wow fadeInUp" data-wow-delay="500ms">
+	                                    <button id="updateBtn" class="btn oneMusic-btn mt-30" type="submit">Send <i class="fa fa-angle-double-right"></i></button>
+	                                </div>
+	                             </div>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
+		<!-- ##### 비밀번호 변경 ##### -->
+		<section class="contact-area section-padding-100">
+			<div class="container">
+	            <div class="row">
+					<div class="col-12">
+						<div class="elements-title">
+	                       	<h2>비밀번호 수정</h2>
+	                    </div>
+	                     <div class="contact-form-area">
+							<form id="updatePw" action="<%=request.getContextPath()%>/member/updateMemberPwAction.jsp">
+                                    	<input type="hidden" name="memberId" value="<%=loginMember.getMemberId()%>">
+								<div class="row">
+	                                <div class="col-md-6 col-lg-4">
+	                                    <div class="form-group wow fadeInUp" data-wow-delay="100ms">
+	                                        <input type="text" class="form-control" id="memberId" name="memberId" value="<%=loginMember.getMemberId()%>" readonly="readonly">
+	                                    </div>
+	                                </div>
+	                                <div class="col-md-6 col-lg-4">
+	                                    <div class="form-group wow fadeInUp" data-wow-delay="100ms">
+	                                        <input type="text" class="form-control" id="memberName" name="memberName" placeholder="<%=loginMember.getMemberName()%>">
+	                                    </div>
+	                                </div>
+	                                <div class="col-lg-4">
+	                                    <div class="form-group wow fadeInUp" data-wow-delay="200ms">
+	                                        <input type="password" class="form-control" id="memberPw" name="memberPw" placeholder="현재 비밀번호">
+	                                        <input type="password" class="form-control" id="memberPw1" name="memberPw1" placeholder="새비밀번호">
+	                                        <input type="password" class="form-control" id="memberPw2" name="memberPw2" placeholder="새비밀번호 확인">
+	                                    </div>
+	                                </div>
+	                                <div class="col-12 text-center wow fadeInUp" data-wow-delay="500ms">
+	                                    <button id="updatePwBtn" class="btn oneMusic-btn mt-30" type="submit">Send <i class="fa fa-angle-double-right"></i></button>
+	                                </div>
+	                             </div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ##### 회원탈퇴 ##### -->
+		<div class="col-12 text-center wow fadeInUp" data-wow-delay="500ms">
+            <button class="btn oneMusic-btn mt-30" type="button" onclick="location.href='<%=request.getContextPath()%>/member/deleteMemberForm.jsp'">탈퇴 <i class="fa fa-angle-double-right"></i></button>
+        </div>
+		
+		<script>
+			let 
+		</script>
 	</body>
 </html>

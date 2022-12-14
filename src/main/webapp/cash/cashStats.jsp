@@ -115,7 +115,7 @@
 			            <div class="h-100 p-4">
 			            
 				            <div class="elements-title">
-		                       <h2>월별 통계</h2>
+		                       	<h2><%=year%>년 월별 통계</h2>
 				            	<a href="<%=request.getContextPath()%>/cash/cashMain.jsp">메인</a>
 		                    </div>
 		                    <form action="<%=request.getContextPath()%>/cash/cashStats.jsp?year=<%=year%>">
@@ -151,13 +151,13 @@
 											for(HashMap<String, Object> m : list) {
 										%>
 												<tr>
-													<td><%=m.get("month") %></td>
-													<td><%=m.get("importCnt")%></td>
-													<td><%=m.get("importSum")%></td>
-													<td><%=m.get("importAvg")%></td>
-													<td><%=m.get("exportCnt")%></td>
-													<td><%=m.get("exportSum")%></td>
-													<td><%=m.get("exportAvg")%></td>
+													<td><%=m.get("month") %>월</td>
+													<td><%=m.get("importCnt")%>건</td>
+													<td><%=m.get("importSum")%>원</td>
+													<td><%=m.get("importAvg")%>원</td>
+													<td><%=m.get("exportCnt")%>건</td>
+													<td><%=m.get("exportSum")%>원</td>
+													<td><%=m.get("exportAvg")%>원</td>
 												</tr>
 										<%
 											}

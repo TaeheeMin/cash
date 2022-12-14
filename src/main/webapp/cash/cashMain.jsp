@@ -124,13 +124,13 @@
 											for(HashMap<String, Object> m : list) {
 										%>
 												<tr>
-													<td><%=m.get("year") %></td>
-													<td><%=m.get("importCnt")%></td>
-													<td><%=m.get("importSum")%></td>
-													<td><%=m.get("importAvg")%></td>
-													<td><%=m.get("exportCnt")%></td>
-													<td><%=m.get("exportSum")%></td>
-													<td><%=m.get("exportAvg")%></td>
+													<td><%=m.get("year")%>년</td>
+													<td><%=m.get("importCnt")%>건</td>
+													<td><%=m.get("importSum")%>원</td>
+													<td><%=m.get("importAvg")%>원</td>
+													<td><%=m.get("exportCnt")%>건</td>
+													<td><%=m.get("exportSum")%>원</td>
+													<td><%=m.get("exportAvg")%>원</td>
 												</tr>
 										<%
 											}

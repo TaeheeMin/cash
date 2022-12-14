@@ -53,13 +53,12 @@
 	</head>
 	
 	<body>
-	<!-- ##### Login Area Start ##### -->
-    <section class="login-area ">
-    <div class="container-xxl position-relative bg-white d-flex p-0">
-	        <!-- Sign In Start -->
-	        <div class="container-fluid">
-	             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
-	                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+        <!-- #### 회원가입 #### -->
+	    <section class="login-area ">
+		    <div class="container-xxl position-relative bg-white d-flex p-0">
+		        <div class="container-fluid">
+		             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+		                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
 	                       <sidebar class="rounded p-4 p-sm-5 my-4 mx-3">
 		                       <div class="d-flex align-items-center justify-content-between mb-3">
 		                            <a href="<%=request.getContextPath() %>/main.jsp" class="">
@@ -67,38 +66,75 @@
 		                            </a>
 		                        </div>
 		                        
-		                       <form method="post" action="<%=request.getContextPath()%>/member/insertMemberAction.jsp">
+		                       <form method="post" action="<%=request.getContextPath()%>/member/insertMemberAction.jsp" id="signinForm">
 			                        <div class="form-floating mb-3">
-								    <input type="text" class="form-control" name="memberId" id="floatingInput" placeholder="ID">
+								    <input type="text" class="form-control" name="memberId" id="id" placeholder="ID">
 								    <label for="floatingInput">ID</label>
 								</div>
 			
 								<div class="form-floating mb-4">
-								    <input type="text" class="form-control" name="memberName" id="floatingInput" placeholder="Name">
+								    <input type="text" class="form-control" name="memberName" id="name" placeholder="Name">
 								    <label for="floatingInput">Name</label>
 								</div>
 								
 								<div class="form-floating mb-4">
-								    <input type="password" class="form-control" name="memberPw1" id="floatingPassword" placeholder="Password">
+								    <input type="password" class="form-control" name="memberPw1" id="pw" placeholder="Password">
 								    <label for="floatingPassword">Password</label>
 								</div>
 								
 								<div class="form-floating mb-4">
-								    <input type="password" class="form-control" name="memberPw2" id="floatingPassword" placeholder="Confirm Password">
+								    <input type="password" class="form-control" name="memberPw2" id="pwConfirm" placeholder="Confirm Password">
 								    <label for="floatingPassword">Confirm Password</label>
 								</div>
-			                         <button type="submit" class="container btn oneMusic-btn mt-30">회원가입</button>
+			                         <button type="button" id="signinBtn" class="container btn oneMusic-btn mt-30">회원가입</button>
 			                         <br>
 			                        <p class="text-center mb-0">이미 회원이신가요? <a href="<%=request.getContextPath()%>/loginForm.jsp">로그인</a></p>
 		                        </form>
-	                       </sidebar>
-                       </div>
-                	</div>
-            	</div>
-        	</div>
-    
-    </section>
-
+	              			</sidebar>
+	                     </div>
+	               	</div>
+	           	</div>
+	       	</div>
+	    </section>
+	    
+		<script>
+			let signinBtn = document.querySelector('#signinBtn');
+			
+			signinBtn.addEventListener('click', function() {
+				// 디버깅
+				console.log('signinBtn click!');
+				
+				// 폼유효성 검사
+				// 아이디
+				let id = document.querySelector('#id');
+				if(id.value == '') {
+					alert('ID를 입력하세요');
+					id.focus();
+					return;
+				}
+				
+				// 이름
+				let name = document.querySelector('#name');
+				if(name.value == ''){
+					alert('이름을 입력하세요');
+					name.focus();
+					return;
+				}
+				
+				// 비밀번호
+				let pw = document.querySelector('#pw');
+				let pwConfirm = document.querySelector('#pwConfirm');
+				if(pw.value == '' || pw.value != pwConfirm.value){
+					alert('비밀번호를 확인해주세요');
+					pw.focus();
+					return;
+				}
+				
+				// action으로 보내기
+				let signinForm = document.querySelector('#signinForm');
+				signinForm.submit();
+			})
+		</script>
 
 	    <!-- JavaScript Libraries -->
 	    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

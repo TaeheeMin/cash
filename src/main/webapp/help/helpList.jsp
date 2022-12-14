@@ -89,64 +89,103 @@
 		<%
 			}
 		%>
-	
+		<!-- #### 리스트 #### -->
 		<section class="elements-area mt-30 section-padding-100-0">
 			<div class="container">
-	            <div class="row">
-					<table class="table table-bordered">
-						<tr>
-							<th>문의 내용</th>
-							<th>작성일</th>
-							<th>답변</th>
-							<th>답변 작성일</th>
-							<th>수정삭제</th>
-						</tr>
-						<%
-						for(HashMap<String, Object> m : list){
-						%>
-							<tr>
-								<td><%=m.get("helpMemo")%></td>
-								<td><%=m.get("helpCreatedate")%></td>
-									<%
-									if(m.get("commentMemo") != null) {
-										%>
-											<td><%=m.get("commentMemo")%></td>
-											<td><%=m.get("commentCreatedate")%></td>
+				<div class="row">
+					<div class="col-12">
+						<div class="h-100 p-4">
+				            <div class="elements-title">
+		                        <h2>고객센터</h2>
+		                    </div>
+			                <div class="table-responsive">
+			                    <table class="table">
+			                        <thead>
+			                            <tr>
+			                                <th scope="col">문의내용</th>
+			                                <th scope="col">작성일</th>
+			                                <th scope="col">답변</th>
+			                                <th scope="col">답변 작성일</th>
+			                                <th scope="col"><i class="icon-settings"></i></th>
+			                            </tr>
+			                        </thead>
+			                        <tbody>
 										<%
-									} else {
+											for(HashMap<String, Object> m : list){
 										%>
-											<td>미답변</td>
-											<td>미답변</td>
-											<td>
-												<a href="<%=request.getContextPath()%>/help/updateHelpForm.jsp?helpNo=<%=m.get("helpNo")%>">수정</a>
-												<a href="<%=request.getContextPath()%>/help/deleteHelp.jsp?helpNo=<%=m.get("helpNo")%>">삭제</a>
-											</td>
+												<tr>
+													<td><%=m.get("helpMemo")%></td>
+													<td><%=m.get("helpCreatedate")%></td>
+														<%
+														if(m.get("commentMemo") != null) {
+															%>
+																<td><%=m.get("commentMemo")%></td>
+																<td><%=m.get("commentCreatedate")%></td>
+															<%
+														} else {
+															%>
+																<td>미답변</td>
+																<td>미답변</td>
+																<td>
+																	<a href="<%=request.getContextPath()%>/help/updateHelpForm.jsp?helpNo=<%=m.get("helpNo")%>">수정</a>
+																	<a href="<%=request.getContextPath()%>/help/deleteHelp.jsp?helpNo=<%=m.get("helpNo")%>">삭제</a>
+																</td>
+															<%
+														}
+													%>
+												</tr>
 										<%
-									}
-								%>
-							</tr>
-						<%
-						}
-						%>
-					</table>
-				</div>
-		
-				<div>
-					<form action="<%=request.getContextPath()%>/help/insertHelpAction.jsp" method="post">
-						<table class="table table-bordered">
-							<tr>
-								<td>문의하기</td>
-								<td>
-									<textarea rows="5" cols="50" name="helpMemo"></textarea>
-								</td>
-							</tr>
-						</table>
-						<div class="position-relative" Style="padding: 1em;">
-							<button type="submit"  class="position-absolute top-100 start-50 translate-middle">등록</button>
+											}
+										%>
+									</tbody>
+								</table>
+							</div>
 						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 		</section>
+		
+		<!-- #### 문의 입력 #### -->					
+		<section class="contact-area section-padding-100">
+			<div class="container">
+            	<div class="row">
+                	<div class="col-12">
+                    	<div class="contact-form-area">
+							<form id="helpForm" action="<%=request.getContextPath()%>/help/insertHelpAction.jsp">
+								<div class="col-12">
+                                    <div class="form-group wow fadeInUp" data-wow-delay="400ms">
+											<textarea class="form-control" id="helpMemo" name="helpMemo" cols="30" rows="10" placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+							</form>
+                            <div class="col-12 text-center wow fadeInUp" data-wow-delay="500ms">
+                            	<button id="helpBtn" class="btn oneMusic-btn mt-30" type="button">Send <i class="fa fa-angle-double-right"></i></button>
+                             </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<script>
+			let helpBtn = document.querySelector('#helpBtn');
+			helpBtn.addEventListener('click',function(){
+				//디버깅
+				console.log('click helpBtn');
+				
+				// 폼 유효성 검사
+				let helpMemo = document.querySelector('#helpMemo');
+				console.log(helpMemo.value);
+				if(helpMemo.value == ''){
+					alert('문의 내용을 입력해주세요');
+					helpMemo.focus();
+					return;
+				}
+				
+				let helpForm = document.querySelector('#helpForm');
+				helpForm.submit();
+			});
+		</script>
 	</body>
 </html>
