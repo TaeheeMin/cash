@@ -113,7 +113,6 @@
 	            	<!-- #### 리스트 #### -->
 					<div class="col-12">
 			            <div class="h-100 p-4">
-			            
 				            <div class="elements-title">
 		                       	<h2><%=year%>년 월별 통계</h2>
 				            	<a href="<%=request.getContextPath()%>/cash/cashMain.jsp">메인</a>

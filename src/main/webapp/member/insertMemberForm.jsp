@@ -68,22 +68,22 @@
 		                        
 		                       <form method="post" action="<%=request.getContextPath()%>/member/insertMemberAction.jsp" id="signinForm">
 			                        <div class="form-floating mb-3">
-								    <input type="text" class="form-control" name="memberId" id="id" placeholder="ID">
+								    <input type="text" class="form-control" name="memberId" id="memberId" placeholder="ID">
 								    <label for="floatingInput">ID</label>
 								</div>
 			
 								<div class="form-floating mb-4">
-								    <input type="text" class="form-control" name="memberName" id="name" placeholder="Name">
+								    <input type="text" class="form-control" name="memberName" id="memberName" placeholder="Name">
 								    <label for="floatingInput">Name</label>
 								</div>
 								
 								<div class="form-floating mb-4">
-								    <input type="password" class="form-control" name="memberPw1" id="pw" placeholder="Password">
+								    <input type="password" class="form-control" name="memberPw1" id="memberPw1" placeholder="Password">
 								    <label for="floatingPassword">Password</label>
 								</div>
 								
 								<div class="form-floating mb-4">
-								    <input type="password" class="form-control" name="memberPw2" id="pwConfirm" placeholder="Confirm Password">
+								    <input type="password" class="form-control" name="memberPw2" id="memberPw2" placeholder="Confirm Password">
 								    <label for="floatingPassword">Confirm Password</label>
 								</div>
 			                         <button type="button" id="signinBtn" class="container btn oneMusic-btn mt-30">회원가입</button>
@@ -106,27 +106,27 @@
 				
 				// 폼유효성 검사
 				// 아이디
-				let id = document.querySelector('#id');
-				if(id.value == '') {
+				let memberId = document.querySelector('#memberId');
+				if(memberId.value == '') {
 					alert('ID를 입력하세요');
-					id.focus();
+					memberId.focus();
 					return;
 				}
 				
 				// 이름
-				let name = document.querySelector('#name');
-				if(name.value == ''){
+				let memberName = document.querySelector('#memberName');
+				if(memberName.value == ''){
 					alert('이름을 입력하세요');
-					name.focus();
+					memberName.focus();
 					return;
 				}
 				
 				// 비밀번호
-				let pw = document.querySelector('#pw');
-				let pwConfirm = document.querySelector('#pwConfirm');
-				if(pw.value == '' || pw.value != pwConfirm.value){
+				let pw = document.querySelector('#memberPw1');
+				let memberPw2 = document.querySelector('#memberPw2');
+				if(memberPw1.value == '' || memberPw1.value != memberPw2.value){
 					alert('비밀번호를 확인해주세요');
-					pw.focus();
+					memberPw1.focus();
 					return;
 				}
 				
