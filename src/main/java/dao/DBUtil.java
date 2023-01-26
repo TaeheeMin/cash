@@ -8,7 +8,7 @@ public class DBUtil {
 	// 입력값X 반환값은 connection타입 반환
 	public Connection getConnection() throws Exception {
 		String driver = "org.mariadb.jdbc.Driver"; 
-		String dbUrl = "jdbc:mariadb://127.0.0.1:3306/cashbook";
+		String dbUrl = "jdbc:mariadb://15.165.143.58:3306/cashbook";
 		String dbUser = "root";
 		String dbPw = "java1234";
 		Class.forName(driver);
