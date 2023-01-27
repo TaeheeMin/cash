@@ -97,12 +97,12 @@
 		                        
 		                        <form action="<%=request.getContextPath()%>/loginAction.jsp">
 			                        <div class="form-floating mb-3">
-			                            <input type="text" class="form-control" name="memberId" id="floatingInput" placeholder="ID">
+			                            <input type="text" class="form-control" name="memberId" id="floatingInput" placeholder="ID" value="goodee">
 			                            <label for="floatingInput">ID</label>
 			                        </div>
 			                        
 			                        <div class="form-floating mb-4">
-			                            <input type="password" class="form-control" name="memberPw" id="floatingPassword" placeholder="Password">
+			                            <input type="password" class="form-control" name="memberPw" id="floatingPassword" placeholder="Password" value="1234">
 			                            <label for="floatingPassword">Password</label>
 			                        </div>
 			                         <button type="submit" class="container btn oneMusic-btn mt-30">Login</button>

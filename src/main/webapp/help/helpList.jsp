@@ -17,6 +17,9 @@
 	// Model : 문의 목록
 	HelpDao helpDao = new HelpDao();
 	ArrayList<HashMap<String, Object>> list = helpDao.selectHelpList(loginMember);
+	System.out.println("list : " + list.size());
+	
+	
 %>
 
 <!DOCTYPE html>

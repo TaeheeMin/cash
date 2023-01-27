@@ -13,6 +13,7 @@ public class DBUtil {
 		String dbPw = "java1234";
 		Class.forName(driver);
 		Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPw);
+		System.out.println("드라이버 로딩 성공");
 		return conn;
 	}
 	

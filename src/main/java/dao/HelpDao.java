@@ -42,15 +42,14 @@ public class HelpDao {
 	// admin helpList -> 오버로딩 메서드의 리턴값같음, 매개변수만 다름
 	public ArrayList<HashMap<String, Object>> selectHelpList(int beginRow, int rowPerPage) throws Exception {
 		//db 자원 초기화(jdbc api자원) 
-		String sql = "SELECT"
-				+ " h.help_no helpNo"
+		String sql = "SELECT h.help_no helpNo"
 				+ ", h.help_memo helpMemo"
 				+ ", h.createdate helpCreatedate"
 				+ ", h.member_id memberId"
 				+ ", c.comment_memo commentMemo"
 				+ ", c.comment_no commentNo"
 				+ ", c.createdate commentCreatedate"
-				+ " FROM HELP h LEFT OUTER JOIN COMMENT c"
+				+ " FROM help h LEFT OUTER JOIN comment c"
 				+ " ON h.help_no=c.help_no"
 				+ " ORDER BY h.help_no DESC"
 				+ " LIMIT ?,?";
@@ -138,7 +137,7 @@ public class HelpDao {
 				+ ", c.comment_memo commentMemo"
 				+ ", c.comment_no commentNo"
 				+ ", c.createdate commentCreatedate"
-				+ " FROM HELP h LEFT OUTER JOIN COMMENT c"
+				+ " FROM help h LEFT OUTER JOIN comment c"
 				+ " ON h.help_no=c.help_no"
 				+ " WHERE h.member_id = ?";
 		DBUtil dbutil = new DBUtil();
