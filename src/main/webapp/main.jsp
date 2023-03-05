@@ -46,33 +46,12 @@
 	    <!-- ##### 메인 ##### -->
 	    <section>
 		    <div class="hero-slides owl-carousel">
-	             <div class="single-hero-slide d-flex align-items-center justify-content-center">
-		   			<div class="container">
-	                    <div class="row">
-	                     	<div class="col-12">
-	                     		<div class="hero-slides-content text-center" data-wow-delay="100ms">
-	                             	<div>
-	                             		<img src="resources/onemusic/img/300x300.jpg">
-	                             	</div>
-	                             	<h2 data-animation="fadeInUp" data-delay="100ms">CASH BOOK</h2>
-	                             	<h6 data-animation="fadeInUp" data-delay="300ms">기능? 설명? 차트사진 같은거</h6>
-	                             	<a data-animation="fadeInUp" data-delay="400ms" href="<%=request.getContextPath()%>/loginForm.jsp" class="btn oneMusic-btn mt-50">START <i class="fa fa-angle-double-right"></i></a>
-	                         	</div>
-	                         </div>
-	                     </div>
-					</div>
-				</div>	
-		                
 	            <div class="single-hero-slide d-flex align-items-center justify-content-center">
 	            	<div class="container">
 	            		<div class="row">
 	            			<div class="col-12">
 	                     		<div class="hero-slides-content text-center" data-wow-delay="100ms">
-	                             	<div>
-	                             		<img src="resources/onemusic/img/300x300.jpg">
-	                             	</div>
 	                             	<h2 data-animation="fadeInUp" data-delay="100ms">CASH BOOK</h2>
-	                             	<h6 data-animation="fadeInUp" data-delay="300ms">11</h6>
 	                             	<a data-animation="fadeInUp" data-delay="400ms" href="<%=request.getContextPath()%>/loginForm.jsp" class="btn oneMusic-btn mt-50">시작하기 <i class="fa fa-angle-double-right"></i></a>
 	                         	</div>
 	                       	</div>
